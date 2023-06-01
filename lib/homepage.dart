@@ -3,59 +3,93 @@ import 'package:simple_app/home.dart';
 import 'package:simple_app/mat.dart';
 import 'package:simple_app/mater.dart';
 import 'package:simple_app/text.dart';
+class homepage extends StatelessWidget {
+  const homepage({Key? key}) : super(key: key);
 
-class homepage extends StatefulWidget {
-  homepage({Key? key}) : super(key: key);
-
-  @override
-  State<homepage> createState() => _homepageState();
-}
-
-class _homepageState extends State<homepage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DefaultTabController(length: 3, child: Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.home),
-        actions: [
-          Icon(Icons.search),
-          SizedBox(
-            width: 15,
-          ),
-          Icon((Icons.logout)),
-          SizedBox(
-            width: 30,
-          )
-        ],
-        centerTitle: true,
-        title: Text('Flutter'),
+        bottom: TabBar(
+          tabs: [
+            Tab(
+              icon: Icon(Icons.dialpad_sharp ,size: 20,),text: "Dialpad",
+            ),
+            Tab(
+              icon: Icon(Icons.call_received ,size: 20,),text: "Recent Call",
+            ),
+            Tab(
+              icon: Icon(Icons.contacts ,size: 20,),text: "Contacts",
+            )
+          ],
+        ),title: Text('Phone calls'),
       ),
-     body:Center(
-       child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-       IconButton(onPressed: (){
-         Navigator.push(context, MaterialPageRoute(builder: (_)=> welcomehome()));
-       }, icon: Icon(Icons.home , color: Colors.orange,size: 20,)
-       ),Material(color: Colors.green ,child: InkWell(
-           onTap: (){
-             Navigator.push(context, MaterialPageRoute(builder: (_)=> ma()));
-           },child: Container(
-           height: 30,
-           width: 40
-         ),
-         ),),
-         RawMaterialButton( child:Icon(Icons.phone ,size: 30,color: Colors.cyan,) , onPressed : () {
-           Navigator.push(context, MaterialPageRoute(builder: (_)=>raw()));
-         } ,
-         shape: CircleBorder(),
-         elevation: 10,
-         fillColor: Colors.grey,),
-         TextButton( child: Text('Hello world')
-           , onPressed: (){
-           Navigator.push(context, MaterialPageRoute(builder: (_)=>textbut()));
-             }
-         ),
-       ],),
-     )
-    );
+      body: TabBarView(
+        children: [
+          Column(
+            children: [SizedBox(height: 40,),
+              Icon(Icons.dialpad_rounded, size: 500,),
+            ],
+          ),
+          Column(
+            children: [ ListTile(
+            title: Text('Raj kumar',style: TextStyle(
+                fontSize: 20,fontWeight: FontWeight.bold
+              ),),
+            ),SizedBox(width: 5,),Icon(Icons.call_missed),
+              ListTile(
+                title: Text('Dashra',style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold
+                ),),
+              ),SizedBox(width: 5,),Icon(Icons.call_missed_outgoing),
+              ListTile(
+                title: Text('Prashanth',style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold
+                ),),
+              ),SizedBox(width: 1,),Icon(Icons.call_made),
+              ListTile(
+                title: Text('Balaji',style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold
+                ),),
+              ),SizedBox(width: 5,),Icon(Icons.call_made_rounded),
+            ],
+          ),
+          Column(
+            children: [ListTile(
+              title: Text('Abhi' , style: TextStyle(
+                  fontSize: 20,fontWeight: FontWeight.bold,
+              ),
+            )), ListTile(
+              title: Text('Balaji', style: TextStyle(
+                  fontSize: 20,fontWeight: FontWeight.bold ),
+            ),
+            ), ListTile(
+                title: Text('charan' , style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              ListTile(
+                title: Text('Deva', style: TextStyle(
+    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              ListTile(
+                title: Text('Gowtham' , style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              ListTile(
+                title: Text('Rakesh' , style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              ListTile(
+                title: Text('Prashanth' , style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),
+              ListTile(
+                title: Text('Vinay Kumar',style: TextStyle(
+                    fontSize: 20,fontWeight: FontWeight.bold),),
+              ),]
+          ),
+        ],
+      ),
+    ));
   }
 }
