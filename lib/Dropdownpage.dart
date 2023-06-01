@@ -7,31 +7,33 @@ class drop extends StatefulWidget {
 }
 
 class _dropState extends State<drop> {
-  String choosevalue='1';
-  var listItem=[
+
+  List<String> items= <String>[
     'Item1','Item2','Item3','Item4'
   ];
+  String? choosevalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: DropdownButton(
+        child: DropdownButton<String>(
           value: choosevalue,
           icon: Icon(Icons.arrow_drop_down_outlined,size: 20,),
           underline: Container(
             height: 2,
             color: Colors.red,
           ), onChanged: (String? newValue) {
-            setState(() {
               choosevalue=newValue!;
             });
           },
-          items:listItem.map((String item) {
-            return DropdownMenuItem(
+          items:items.map<DropdownMenuItem<String>>(
+                (String item) {
+            return DropdownMenuItem<String>(
             value: item,
             child: Text(item),
             );
-    },).toList(),
+    },
+          ).toList(),
           ),
       ),
       );
