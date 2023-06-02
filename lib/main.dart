@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_app/Alerbox.dart';
 import 'package:simple_app/Dropdownpage.dart';
 import 'package:simple_app/new.dart';
+import 'package:simple_app/sliverbar.dart';
 import 'homepage.dart';
 void main()=>runApp(Myapp());
 class Myapp extends StatelessWidget {
@@ -10,9 +11,9 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'hello world',
-        theme: ThemeData(primarySwatch: Colors.deepPurple),
-        home: drop(),
+      title: 'hello world',
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: Sliver(),
     );
 
   }

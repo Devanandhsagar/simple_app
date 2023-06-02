@@ -33,7 +33,7 @@ class _dropState extends State<drop> {
               child: Text(value));
 
     }
-          ).toList(),),
+          ) .toList(),),
         )
 
 
